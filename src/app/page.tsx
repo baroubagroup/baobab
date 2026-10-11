@@ -181,141 +181,103 @@ export default function Home() {
     <>
       {/* ══════════════════════════════════════════════════ HERO */}
       <section ref={heroRef} className="relative bg-primary-dark text-white min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden">
-        {/* Particules / blobs de fond (masqués sur mobile pour fluidité maximale du scroll) */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="hidden md:block">
-            <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.07, 0.12, 0.07] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-accent blur-[120px]" />
-            <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute -bottom-20 right-0 w-[500px] h-[500px] rounded-full bg-primary blur-[100px]" />
-          </div>
-          {/* Grille de points */}
-          <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+        {/* Image de couverture en arrière-plan plein écran avec opacité réduite */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/hero_cover.webp"
+            alt="BAOBAB Mind & Capital — Leadership & Équipes"
+            fill
+            priority
+            className="object-cover object-center opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/85 to-primary-dark/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/30" />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container mx-auto px-4 md:px-6 py-16 lg:py-20 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            
-            {/* Texte principal */}
-            <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
-              <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/15 text-accent text-xs sm:text-sm font-semibold backdrop-blur-sm">
-                  <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                  Basé à Ouagadougou 🇧🇫 — Actif à l'international
-                </span>
-              </motion.div>
+        {/* Grille de points */}
+        <div className="absolute inset-0 pointer-events-none z-[1]" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight"
-              >
-                Façonnons ensemble les{" "}
-                <span className="relative inline-block">
-                  <span className="text-accent">écosystèmes</span>
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-                    style={{ originX: 0 }}
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
-                  />
-                </span>{" "}
-                technologiques du futur
-              </motion.h1>
+        {/* Particules / blobs de fond légers (masqués sur mobile pour fluidité maximale du scroll) */}
+        <div className="absolute inset-0 pointer-events-none z-[1]">
+          <div className="hidden md:block">
+            <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.1, 0.06] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-accent blur-[120px]" />
+            <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute -bottom-20 right-0 w-[500px] h-[500px] rounded-full bg-primary blur-[100px]" />
+          </div>
+        </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4 }}
-                className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-              >
-                À travers <strong className="text-white">BAOBAB MIND & CAPITAL</strong>, Ousmane Zongo accompagne les entrepreneurs et investisseurs africains et participe au développement d'écosystèmes innovants dans les domaines de l'énergie, des technologies avancées, de la santé et des solutions numériques.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.55 }}
-                className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto justify-center lg:justify-start"
-              >
-                <Link href="/projets" className="group bg-accent hover:bg-yellow-400 text-primary-dark font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/25 hover:shadow-accent/40 text-sm sm:text-base">
-                  Découvrir nos projets
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link href="/contact" className="group bg-white/8 hover:bg-white/15 border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all flex items-center justify-center backdrop-blur-sm text-sm sm:text-base">
-                  Nous contacter
-                </Link>
-              </motion.div>
-
-              {/* Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.7 }}
-                className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 pt-4 border-t border-white/10 w-full"
-              >
-                {[
-                  { value: 4, label: "Projets phares", suffix: "" },
-                  { value: 2030, label: "Vision horizon", suffix: "" },
-                  { value: 12, label: "Années d'expérience", suffix: "+" },
-                ].map((s) => (
-                  <div key={s.label}>
-                    <p className="text-2xl sm:text-3xl font-extrabold text-accent">
-                      <AnimatedCounter value={s.value} />{s.suffix}
-                    </p>
-                    <p className="text-xs text-gray-400 mt-1 uppercase tracking-widest">{s.label}</p>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-
-            {/* Image de couverture horizontale (Équipe & Leadership industriel international) */}
-            <motion.div
-              initial={{ opacity: 0, x: 40, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="w-full lg:w-1/2 flex justify-center lg:justify-end"
-            >
-              <div className="relative w-full max-w-lg lg:max-w-xl group">
-                {/* Glow subtil doré et vert */}
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-accent/30 via-primary/30 to-accent/15 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-700 pointer-events-none" />
-
-                {/* Cadre de l'image horizontale 16:9 */}
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-primary-dark">
-                  <Image
-                    src="/images/hero_cover.webp"
-                    alt="Ousmane Zongo avec son équipe industrielle — BAOBAB Mind & Capital"
-                    fill
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  />
-
-                  {/* Dégradé doux pour lisibilité */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent pointer-events-none" />
-
-                  {/* Badge en bas */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between gap-3">
-                    <div>
-                      <p className="text-white font-extrabold text-base sm:text-lg tracking-wide drop-shadow-md">
-                        Ousmane Zongo & Équipes
-                      </p>
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                        <p className="text-accent text-xs font-bold uppercase tracking-wider">
-                          Leadership • Industrie & Innovation
-                        </p>
-                      </div>
-                    </div>
-
-                    <span className="bg-accent text-primary-dark font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-md">
-                      Vision 2030 🌍
-                    </span>
-                  </div>
-                </div>
-              </div>
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container mx-auto px-4 md:px-6 py-20 lg:py-28 relative z-10">
+          <div className="max-w-3xl flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
+            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/15 text-accent text-xs sm:text-sm font-semibold backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                Basé à Ouagadougou 🇧🇫 — Actif à l'international
+              </span>
             </motion.div>
 
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight"
+            >
+              Façonnons ensemble les{" "}
+              <span className="relative inline-block">
+                <span className="text-accent">écosystèmes</span>
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+                  style={{ originX: 0 }}
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent"
+                />
+              </span>{" "}
+              technologiques du futur
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+            >
+              À travers <strong className="text-white">BAOBAB MIND & CAPITAL</strong>, Ousmane Zongo accompagne les entrepreneurs et investisseurs africains et participe au développement d'écosystèmes innovants dans les domaines de l'énergie, des technologies avancées, de la santé et des solutions numériques.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto justify-center lg:justify-start"
+            >
+              <Link href="/projets" className="group bg-accent hover:bg-yellow-400 text-primary-dark font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/25 hover:shadow-accent/40 text-sm sm:text-base">
+                Découvrir nos projets
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/contact" className="group bg-white/8 hover:bg-white/15 border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all flex items-center justify-center backdrop-blur-sm text-sm sm:text-base">
+                Nous contacter
+              </Link>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 pt-4 border-t border-white/10 w-full"
+            >
+              {[
+                { value: 4, label: "Projets phares", suffix: "" },
+                { value: 2030, label: "Vision horizon", suffix: "" },
+                { value: 12, label: "Années d'expérience", suffix: "+" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <p className="text-2xl sm:text-3xl font-extrabold text-accent">
+                    <AnimatedCounter value={s.value} />{s.suffix}
+                  </p>
+                  <p className="text-xs text-gray-400 mt-1 uppercase tracking-widest">{s.label}</p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </section>

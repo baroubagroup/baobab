@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink, Zap, Leaf, Globe, TrendingUp, Users, Shield } from "lucide-react";
 
 function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -37,7 +38,8 @@ export default function SolargroupPage() {
       {/* ══ HERO */}
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-sky-950 via-blue-900 to-sky-800">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-950 via-sky-950/80 to-sky-950/40" />
+          <Image src="/images/pdg.webp" alt="BAOBAB Mind & Capital" fill priority className="object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-sky-950 via-sky-950/85 to-sky-950/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-sky-950 via-transparent to-transparent" />
         </div>
         <div className="absolute inset-0 pointer-events-none z-[1]"

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink, HeartPulse, Activity, Smartphone, Shield, Globe, TrendingUp } from "lucide-react";
 
 function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -37,7 +38,8 @@ export default function MlcPage() {
       {/* ══ HERO */}
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-rose-950 via-red-900 to-rose-800">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-950 via-rose-950/80 to-rose-950/40" />
+          <Image src="/images/pdg.webp" alt="BAOBAB Mind & Capital" fill priority className="object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-rose-950 via-rose-950/85 to-rose-950/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-rose-950 via-transparent to-transparent" />
         </div>
         <div className="absolute inset-0 pointer-events-none z-[1]"

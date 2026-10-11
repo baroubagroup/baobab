@@ -59,9 +59,11 @@ export default function BlogPage() {
       
       {/* ══════════════════════════════════════════════════ HERO */}
       <section ref={heroRef} className="relative bg-primary-dark text-white min-h-[50vh] flex items-center overflow-hidden">
-        {/* Background abstrait */}
+        {/* Background avec photo du PDG en filigrane */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark via-primary-dark to-primary-dark/95" />
+          <Image src="/images/pdg.webp" alt="BAOBAB Mind & Capital" fill priority className="object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/85 to-primary-dark/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-transparent" />
           <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </div>
 

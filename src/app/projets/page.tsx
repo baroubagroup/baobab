@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 // ─── Composants d'animation ──────────────────────────────────────────────────
@@ -355,9 +356,10 @@ export default function ProjectsPage() {
         ref={heroRef}
         className="relative bg-primary-dark text-white min-h-[65vh] flex items-center overflow-hidden"
       >
-        {/* Arrière-plan du Hero */}
+        {/* Arrière-plan du Hero avec photo du PDG en filigrane */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0B4624] to-[#07381B]" />
+          <Image src="/images/pdg.webp" alt="BAOBAB Mind & Capital" fill priority className="object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/85 to-primary-dark/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-transparent" />
         </div>
 

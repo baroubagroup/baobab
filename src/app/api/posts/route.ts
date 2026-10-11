@@ -9,8 +9,12 @@ function getPosts() {
   if (!fs.existsSync(dataFilePath)) {
     return [];
   }
-  const fileData = fs.readFileSync(dataFilePath, "utf8");
-  return JSON.parse(fileData);
+  try {
+    const fileData = fs.readFileSync(dataFilePath, "utf8");
+    return JSON.parse(fileData);
+  } catch {
+    return [];
+  }
 }
 
 export async function GET() {
@@ -40,17 +44,36 @@ export async function POST(request: Request) {
       category: body.category || "Actualités",
       excerpt: body.excerpt,
       keywords: body.keywords || "", // Support SEO
-      imageUrl: body.imageUrl || "https://placehold.co/600x400/1E6C93/FFF?text=Article", // Image par défaut
+      imageUrl: body.imageUrl || "https://placehold.co/600x400/0F5C2E/FFF?text=Article", // Vert de marque
       videoUrl: body.videoUrl || null, // Support des vidéos YouTube
       createdAt: new Date().toISOString(),
-      readTime: Math.ceil(body.excerpt.length / 200) + " min", // Estimation simple
+      readTime: Math.max(2, Math.ceil((body.excerpt.length || 300) / 250)) + " min",
     };
 
-    posts.push(newPost);
+    posts.unshift(newPost);
     fs.writeFileSync(dataFilePath, JSON.stringify(posts, null, 2));
 
     return NextResponse.json(newPost, { status: 201 });
   } catch (error) {
     return NextResponse.json({ error: "Erreur lors de l'enregistrement de l'article" }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json({ error: "ID de l'article requis" }, { status: 400 });
+    }
+
+    const posts = getPosts();
+    const filtered = posts.filter((p: any) => p.id !== id);
+    fs.writeFileSync(dataFilePath, JSON.stringify(filtered, null, 2));
+
+    return NextResponse.json({ success: true, message: "Article supprimé avec succès" });
+  } catch (error) {
+    return NextResponse.json({ error: "Erreur lors de la suppression" }, { status: 500 });
   }
 }

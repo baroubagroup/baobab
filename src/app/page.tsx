@@ -535,7 +535,9 @@ export default function Home() {
                     <div className="p-6 flex flex-col flex-grow gap-3">
                       <p className="text-xs text-gray-400">{new Date(post.createdAt).toLocaleDateString('fr-FR')} · {post.readTime}</p>
                       <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors leading-snug">{post.title}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-2 flex-grow">{post.excerpt}</p>
+                      <p className="text-sm text-gray-600 line-clamp-2 flex-grow">
+                        {typeof post.excerpt === "string" ? post.excerpt.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : post.excerpt}
+                      </p>
                       <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-sm mt-2 group-hover:gap-2.5 transition-all">
                         Lire l'article <ArrowRight size={15} />
                       </span>

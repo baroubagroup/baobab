@@ -197,7 +197,7 @@ export default function BlogPage() {
                       </h3>
                       
                       <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-grow line-clamp-3">
-                        {article.excerpt}
+                        {typeof article.excerpt === "string" ? article.excerpt.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : article.excerpt}
                       </p>
                       
                       {/* Ligne séparatrice animée */}

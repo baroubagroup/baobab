@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "id": "1",
+    "title": "La Révolution des Moteurs Asynchrones et la Transition Énergétique en Afrique",
+    "category": "Énergie",
+    "excerpt": "Comment les nouvelles technologies de bobinage combiné et l'efficacité industrielle ouvrent un boulevard d'opportunités d'investissement durable à travers le continent.",
+    "keywords": "Énergie solaire, Transition énergétique, Solargroup, Afrique, BAOBAB MIND & CAPITAL",
+    "imageUrl": "https://placehold.co/600x400/0F5C2E/FFF?text=Energie+Solargroup",
+    "videoUrl": null,
+    "createdAt": "2026-03-20T10:00:00.000Z",
+    "readTime": "4 min"
+  },
+  {
+    "id": "2",
+    "title": "Capital-Investissement & Souveraineté : Valoriser nos Ressources Stratégiques",
+    "category": "Investissement",
+    "excerpt": "Une analyse exclusive de M. Ousmane Zongo sur la transformation locale de nos métaux stratégiques et les modèles de rendements pour les investisseurs privés.",
+    "keywords": "Capital risque, Ressources stratégiques, Aureus Alliance, Golden Africa, BAOBAB MIND & CAPITAL",
+    "imageUrl": "https://placehold.co/600x400/0F5C2E/FFF?text=Investissement+Afrique",
+    "videoUrl": null,
+    "createdAt": "2026-03-15T14:30:00.000Z",
+    "readTime": "5 min"
+  }
+]

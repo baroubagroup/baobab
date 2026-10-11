@@ -195,7 +195,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             
             {/* Texte principal */}
-            <div className="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
+            <div className="w-full lg:w-1/2 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
                 <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/15 text-accent text-xs sm:text-sm font-semibold backdrop-blur-sm">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
@@ -269,55 +269,49 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Photo du leader - Masquée sur mobile (hidden lg:flex) pour un affichage épuré, ultra-rapide et sans duplication */}
+            {/* Image de couverture horizontale (Équipe & Leadership industriel international) */}
             <motion.div
-              initial={{ opacity: 0, x: 60, scale: 0.9 }}
+              initial={{ opacity: 0, x: 40, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="hidden lg:flex lg:w-2/5 justify-center lg:justify-end"
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="w-full lg:w-1/2 flex justify-center lg:justify-end"
             >
-              <div className="relative">
-                {/* Anneau décoratif animé */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-3 rounded-3xl border border-accent/20 border-dashed"
-                />
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="absolute -inset-6 rounded-3xl border border-white/5 border-dashed"
-                />
+              <div className="relative w-full max-w-lg lg:max-w-xl group">
+                {/* Glow subtil doré et vert */}
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-accent/30 via-primary/30 to-accent/15 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-700 pointer-events-none" />
 
-                {/* Card photo */}
-                <div className="relative w-72 md:w-80 xl:w-96 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-                  {/* ⬇ Remplacez ce fichier : public/images/image_hero_leader.png (ou .webp) */}
-                  <img
-                    src="/images/pdg.webp"
-                    alt="Ousmane Zongo — PDG BAOBAB Mind & Capital"
-                    className="w-full aspect-[3/4] object-cover"
+                {/* Cadre de l'image horizontale 16:9 */}
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-primary-dark">
+                  <Image
+                    src="/images/hero_cover.webp"
+                    alt="Ousmane Zongo avec son équipe industrielle — BAOBAB Mind & Capital"
+                    fill
+                    priority
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
 
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-transparent to-transparent" />
+                  {/* Dégradé doux pour lisibilité */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/20 to-transparent pointer-events-none" />
 
-                  {/* Badge PDG en bas */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <p className="text-white font-extrabold text-xl tracking-wide">Ousmane Zongo</p>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className="w-2 h-2 rounded-full bg-accent"></span>
-                      <p className="text-accent text-sm font-semibold uppercase tracking-widest">PDG — BAOBAB Mind & Capital</p>
+                  {/* Badge en bas */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 flex items-end justify-between gap-3">
+                    <div>
+                      <p className="text-white font-extrabold text-base sm:text-lg tracking-wide drop-shadow-md">
+                        Ousmane Zongo & Équipes
+                      </p>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                        <p className="text-accent text-xs font-bold uppercase tracking-wider">
+                          Leadership • Industrie & Innovation
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Badge flottant "Vision 2030" */}
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-4 right-4 bg-accent text-primary-dark px-3 py-1.5 rounded-full text-xs font-extrabold shadow-lg"
-                  >
-                    Vision 2030 🌍
-                  </motion.div>
+                    <span className="bg-accent text-primary-dark font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-md">
+                      Vision 2030 🌍
+                    </span>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -1,9 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: { remotePatterns: [{ protocol: 'https', hostname: 'placehold.co' }, { protocol: 'https', hostname: 'images.unsplash.com' }] },
-  /* config options here */
-    async headers() {
+  images: { 
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      { protocol: 'https', hostname: 'placehold.co' }, 
+      { protocol: 'https', hostname: 'images.unsplash.com' }
+    ] 
+  },
+  async headers() {
     return [
       {
         source: '/(.*)',
@@ -18,8 +23,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {
@@ -31,5 +34,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-

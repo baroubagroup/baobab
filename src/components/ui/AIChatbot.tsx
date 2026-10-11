@@ -67,7 +67,7 @@ export default function AIChatbot() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-4 md:right-6 w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden"
+            className="fixed bottom-20 md:bottom-24 right-2 sm:right-4 md:right-6 w-[calc(100vw-1rem)] sm:w-[350px] max-h-[calc(100vh-120px)] h-[500px] bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-primary-dark p-4 flex items-center justify-between text-white">
@@ -122,7 +122,8 @@ export default function AIChatbot() {
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-24 right-4 md:right-6 w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center shadow-2xl z-50 border-2 border-accent/20"
+        className="fixed bottom-36 md:bottom-24 right-4 md:right-6 w-13 h-13 sm:w-14 sm:h-14 p-3 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full flex items-center justify-center shadow-2xl z-40 border-2 border-accent/20"
+        aria-label="Assistant IA"
       >
         {isOpen ? <X size={24} /> : <Bot size={24} />}
       </motion.button>

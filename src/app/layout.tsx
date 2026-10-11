@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AIChatbot from "@/components/ui/AIChatbot";
+import MobileBottomNav from "@/components/layout/MobileBottomNav";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://baobab-mind-capital.com'),
@@ -43,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className="font-sans antialiased min-h-screen flex flex-col bg-background text-foreground">
+      <body className="font-sans antialiased min-h-screen flex flex-col bg-background text-foreground pb-16 md:pb-0">
         <Navbar />
         <main className="flex-grow pt-20">
           {children}
@@ -51,6 +52,7 @@ export default function RootLayout({
         <Footer />
         <AIChatbot />
         <WhatsAppButton />
+        <MobileBottomNav />
       </body>
     </html>
   );

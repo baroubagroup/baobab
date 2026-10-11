@@ -37,8 +37,6 @@ export default function ReactorPage() {
       {/* ══ HERO */}
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-orange-950 via-amber-900 to-orange-800">
         <div className="absolute inset-0 z-0">
-          {/* ⬇ Remplacez : public/images/image_projet_reactor.png */}
-          <img src="/images/image_bg_projets.svg" alt="Reactor" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-orange-950 via-orange-950/80 to-orange-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-orange-950 via-transparent to-transparent" />
         </div>

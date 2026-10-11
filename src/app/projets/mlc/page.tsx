@@ -37,8 +37,6 @@ export default function MlcPage() {
       {/* ══ HERO */}
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-rose-950 via-red-900 to-rose-800">
         <div className="absolute inset-0 z-0">
-          {/* ⬇ Remplacez : public/images/image_projet_mlc.png */}
-          <img src="/images/image_bg_projets.svg" alt="MLC" className="w-full h-full object-cover opacity-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-rose-950 via-rose-950/80 to-rose-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-rose-950 via-transparent to-transparent" />
         </div>

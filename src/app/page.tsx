@@ -180,22 +180,24 @@ export default function Home() {
   return (
     <>
       {/* ══════════════════════════════════════════════════ HERO */}
-      <section ref={heroRef} className="relative bg-primary-dark text-white min-h-[90vh] flex items-center overflow-hidden">
-        {/* Particules / blobs de fond */}
+      <section ref={heroRef} className="relative bg-primary-dark text-white min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden">
+        {/* Particules / blobs de fond (masqués sur mobile pour fluidité maximale du scroll) */}
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.07, 0.12, 0.07] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-accent blur-[120px]" />
-          <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute -bottom-20 right-0 w-[500px] h-[500px] rounded-full bg-primary blur-[100px]" />
+          <div className="hidden md:block">
+            <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.07, 0.12, 0.07] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-accent blur-[120px]" />
+            <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute -bottom-20 right-0 w-[500px] h-[500px] rounded-full bg-primary blur-[100px]" />
+          </div>
           {/* Grille de points */}
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container mx-auto px-4 md:px-6 py-20 relative z-10">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="container mx-auto px-4 md:px-6 py-16 lg:py-20 relative z-10">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             
             {/* Texte principal */}
-            <div className="lg:w-3/5 flex flex-col gap-6">
+            <div className="w-full lg:w-3/5 flex flex-col gap-6 text-center lg:text-left items-center lg:items-start">
               <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-                <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/15 text-accent text-sm font-semibold backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/15 text-accent text-xs sm:text-sm font-semibold backdrop-blur-sm">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
                   Basé à Ouagadougou 🇧🇫 — Actif à l'international
                 </span>
@@ -205,7 +207,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight"
+                className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] tracking-tight"
               >
                 Façonnons ensemble les{" "}
                 <span className="relative inline-block">
@@ -225,7 +227,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
-                className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl"
+                className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               >
                 À travers <strong className="text-white">BAOBAB MIND & CAPITAL</strong>, Ousmane Zongo accompagne les entrepreneurs et investisseurs africains et participe au développement d'écosystèmes innovants dans les domaines de l'énergie, des technologies avancées, de la santé et des solutions numériques.
               </motion.p>
@@ -234,13 +236,13 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.55 }}
-                className="flex flex-col sm:flex-row gap-4 pt-2"
+                className="flex flex-col sm:flex-row gap-4 pt-2 w-full sm:w-auto justify-center lg:justify-start"
               >
-                <Link href="/projets" className="group bg-accent hover:bg-yellow-400 text-primary-dark font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/25 hover:shadow-accent/40">
+                <Link href="/projets" className="group bg-accent hover:bg-yellow-400 text-primary-dark font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/25 hover:shadow-accent/40 text-sm sm:text-base">
                   Découvrir nos projets
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/contact" className="group bg-white/8 hover:bg-white/15 border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all flex items-center justify-center backdrop-blur-sm">
+                <Link href="/contact" className="group bg-white/8 hover:bg-white/15 border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all flex items-center justify-center backdrop-blur-sm text-sm sm:text-base">
                   Nous contacter
                 </Link>
               </motion.div>
@@ -250,7 +252,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.7 }}
-                className="flex gap-8 pt-4 border-t border-white/10"
+                className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 pt-4 border-t border-white/10 w-full"
               >
                 {[
                   { value: 4, label: "Projets phares", suffix: "" },
@@ -258,7 +260,7 @@ export default function Home() {
                   { value: 12, label: "Années d'expérience", suffix: "+" },
                 ].map((s) => (
                   <div key={s.label}>
-                    <p className="text-2xl md:text-3xl font-extrabold text-accent">
+                    <p className="text-2xl sm:text-3xl font-extrabold text-accent">
                       <AnimatedCounter value={s.value} />{s.suffix}
                     </p>
                     <p className="text-xs text-gray-400 mt-1 uppercase tracking-widest">{s.label}</p>
@@ -267,12 +269,12 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Photo du leader */}
+            {/* Photo du leader - Masquée sur mobile (hidden lg:flex) pour un affichage épuré, ultra-rapide et sans duplication */}
             <motion.div
               initial={{ opacity: 0, x: 60, scale: 0.9 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="lg:w-2/5 flex justify-center lg:justify-end"
+              className="hidden lg:flex lg:w-2/5 justify-center lg:justify-end"
             >
               <div className="relative">
                 {/* Anneau décoratif animé */}
@@ -347,7 +349,7 @@ export default function Home() {
 
             <SlideIn direction="right" className="lg:w-1/2 flex flex-col gap-6">
               <span className="text-xs font-bold text-primary uppercase tracking-[0.25em]">Qui sommes-nous</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
                 La <span className="text-primary">Vision ZONGO 2030</span>
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -451,10 +453,10 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════ PROJETS */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <FadeUp className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+          <FadeUp className="flex flex-col md:flex-row justify-between items-center md:items-end text-center md:text-left mb-14 gap-6">
             <div>
               <span className="text-xs font-bold text-primary uppercase tracking-[0.25em] mb-3 block">Opportunités</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
                 Nos projets <span className="text-primary">phares</span>
               </h2>
             </div>
@@ -507,10 +509,10 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════ BLOG APERÇU */}
       <section className="py-24 bg-light-gray overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
-          <FadeUp className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+          <FadeUp className="flex flex-col md:flex-row justify-between items-center md:items-end text-center md:text-left mb-14 gap-6">
             <div>
               <span className="text-xs font-bold text-primary uppercase tracking-[0.25em] mb-3 block">Actualités</span>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
                 Le blog <span className="text-primary">BAOBAB</span>
               </h2>
             </div>

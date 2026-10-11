@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 // ─── Composants d'animation ──────────────────────────────────────────────────
@@ -66,8 +65,7 @@ const projects = [
     bonus: "50$ offerts dès votre inscription (après validation KYC)",
     cta: "S'inscrire et obtenir mon bonus",
     href: "https://reg.solargroup.pro/fr/user/ref/plan/my-status?ref_code=djh678",
-    // ⬇ Remplacez : public/images/image_projet_solargroup.png
-    image: "/images/image_bg_projets.svg",
+
   },
   {
     id: "reactor",
@@ -99,7 +97,7 @@ const projects = [
     bonus: "Dividendes estimés à 178 Milliards USD partagés entre les détenteurs de parts dès 2029",
     cta: "Accéder à l'opportunité",
     href: "https://goldenafrica-invest.com/sign-up?ref=G4A4222Y",
-    image: "/images/image_bg_projets.svg",
+
   },
   {
     id: "aureus",
@@ -131,7 +129,7 @@ const projects = [
     bonus: "Titres financiers d'une valeur de 1 000$ dès l'inscription validée",
     cta: "Créer mon compte AUREUS",
     href: "https://www.aureus.africa/zousmane",
-    image: "/images/image_bg_projets.svg",
+
   },
   {
     id: "mlc",
@@ -162,7 +160,7 @@ const projects = [
     bonus: "200 parts du projet offertes gratuitement dès votre inscription (après validation KYC)",
     cta: "Obtenir mes 200 parts MLC",
     href: "https://mlc.health/fr/axj778",
-    image: "/images/image_bg_projets.svg",
+
   },
 ];
 
@@ -194,8 +192,14 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
           href={`/projets/${project.id}`}
           className={`relative lg:w-2/5 min-h-64 lg:min-h-auto bg-gradient-to-br ${project.heroGradient} flex flex-col justify-between p-8 group/panel cursor-pointer`}
         >
-          {/* Image de fond du projet */}
-          <Image src={project.image} alt={project.name} fill className="absolute inset-0 object-cover opacity-10 mix-blend-luminosity group-hover/panel:opacity-20 transition-opacity duration-500" />
+          {/* Motif de fond géométrique subtil en filigrane (zéro texte parasite) */}
+          <div
+            className="absolute inset-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(rgba(255,255,255,0.25) 1.5px, transparent 1.5px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
 
           {/* Blob déco */}
           <motion.div
@@ -351,11 +355,9 @@ export default function ProjectsPage() {
         ref={heroRef}
         className="relative bg-primary-dark text-white min-h-[65vh] flex items-center overflow-hidden"
       >
-        {/* Image de fond */}
+        {/* Arrière-plan du Hero */}
         <div className="absolute inset-0 z-0">
-          {/* ⬇ Remplacez : public/images/image_bg_projets.png */}
-          <Image src="/images/image_bg_projets.svg" alt="Projets Background" fill className="object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-primary-dark/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-[#0B4624] to-[#07381B]" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-transparent" />
         </div>
 

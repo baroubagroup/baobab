@@ -1,1 +1,21 @@
-<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#0A3D5C"/><text x="50%" y="50%" font-family="sans-serif" font-size="40" text-anchor="middle" fill="#ffffff">image_bg_projets (remplacer par photo large)</text></svg>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="projBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07381B" />
+      <stop offset="50%" stop-color="#0B4624" />
+      <stop offset="100%" stop-color="#0F5C2E" />
+    </linearGradient>
+    <radialGradient id="projGlow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#D4A843" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#07381B" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="gridPattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="1" fill="#FFFFFF" fill-opacity="0.08" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#projBgGrad)" />
+  <rect width="100%" height="100%" fill="url(#projGlow)" />
+  <rect width="100%" height="100%" fill="url(#gridPattern)" />
+  <circle cx="1500" cy="200" r="400" fill="#D4A843" fill-opacity="0.04" />
+  <circle cx="200" cy="900" r="500" fill="#0F5C2E" fill-opacity="0.2" />
+</svg>

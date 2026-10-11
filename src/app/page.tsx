@@ -181,17 +181,17 @@ export default function Home() {
     <>
       {/* ══════════════════════════════════════════════════ HERO */}
       <section ref={heroRef} className="relative bg-primary-dark text-white min-h-[85vh] lg:min-h-[90vh] flex items-center overflow-hidden">
-        {/* Image de couverture en arrière-plan plein écran avec opacité réduite */}
+        {/* Image de couverture en arrière-plan plein écran avec opacité rehaussée pour être bien visible */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero_cover.webp"
             alt="BAOBAB Mind & Capital — Leadership & Équipes"
             fill
             priority
-            className="object-cover object-center opacity-25"
+            className="object-cover object-center opacity-45"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/85 to-primary-dark/50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary-dark/75 to-primary-dark/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-transparent to-primary-dark/20" />
         </div>
 
         {/* Grille de points */}

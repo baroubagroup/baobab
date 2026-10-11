@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import AIChatbot from "@/components/ui/AIChatbot";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://baobab-mind-capital.com'),
@@ -46,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground`}>
+      <body className="font-sans antialiased min-h-screen flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-grow pt-20">
           {children}
@@ -58,4 +55,3 @@ export default function RootLayout({
     </html>
   );
 }
-
